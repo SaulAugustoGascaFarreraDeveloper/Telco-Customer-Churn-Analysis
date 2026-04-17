@@ -30,3 +30,7 @@ data/processed/
 *.onnx
 *.h5
 *.pt
+
+# BUT keep the serving model artifacts
+!src/serving/model/**/*.pkl
+!src/serving/model/**/*.joblib
