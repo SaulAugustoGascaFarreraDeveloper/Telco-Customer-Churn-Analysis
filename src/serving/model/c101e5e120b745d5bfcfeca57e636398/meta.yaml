@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/sgfar/anaconda_projects/PythonJupyterProject/Telco%20Customer%20Churn%20ML/mlruns/444303097283700649/c101e5e120b745d5bfcfeca57e636398/artifacts
+end_time: 1775772669017
+entry_point_name: ''
+experiment_id: '444303097283700649'
+lifecycle_stage: active
+run_id: c101e5e120b745d5bfcfeca57e636398
+run_name: beautiful-shrew-626
+run_uuid: c101e5e120b745d5bfcfeca57e636398
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1775772663957
+status: 3
+tags: []
+user_id: sgfar

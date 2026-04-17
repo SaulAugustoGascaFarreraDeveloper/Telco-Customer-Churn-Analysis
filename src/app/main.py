@@ -37,6 +37,7 @@ class CustomerData(BaseModel):
     """
     # Demographics
     gender: str                # "Male" or "Female"
+    SeniorCitizen: int 
     Partner: str               # "Yes" or "No" - has partner
     Dependents: str            # "Yes" or "No" - has dependents
     
@@ -86,7 +87,7 @@ def get_prediction(data: CustomerData):
     
 
 def gradio_interface(
-    gender, Partner, Dependents, PhoneService, MultipleLines,
+    gender,SeniorCitizen, Partner, Dependents, PhoneService, MultipleLines,
     InternetService, OnlineSecurity, OnlineBackup, DeviceProtection,
     TechSupport, StreamingTV, StreamingMovies, Contract,
     PaperlessBilling, PaymentMethod, tenure, MonthlyCharges, TotalCharges
@@ -104,6 +105,7 @@ def gradio_interface(
     # Construct data dictionary matching CustomerData schema
     data = {
         "gender": gender,
+        "SeniorCitizen": int(SeniorCitizen),
         "Partner": Partner,
         "Dependents": Dependents,
         "PhoneService": PhoneService,
@@ -136,6 +138,7 @@ demo = gr.Interface(
     inputs=[
         # Demographics section
         gr.Dropdown(["Male", "Female"], label="Gender", value="Male"),
+        gr.Dropdown([0, 1], label="Senior Citizen (0=No, 1=Yes)", value=0),
         gr.Dropdown(["Yes", "No"], label="Partner", value="No"),
         gr.Dropdown(["Yes", "No"], label="Dependents", value="No"),
         

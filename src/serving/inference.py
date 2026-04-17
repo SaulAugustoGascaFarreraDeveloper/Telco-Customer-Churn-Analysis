@@ -119,6 +119,11 @@ def _serve_transform(df: pd.DataFrame) -> pd.DataFrame:
             df[c] = pd.to_numeric(df[c], errors="coerce")
             # Fill NaN with 0 (same as training preprocessing)
             df[c] = df[c].fillna(0)
+
+
+    # SeniorCitizen ya es numérico (0/1), asegurar tipo para evitar que entre al OHE
+    if 'SeniorCitizen' in df.columns:
+        df['SeniorCitizen'] = pd.to_numeric(df['SeniorCitizen'], errors='coerce').fillna(0).astype(int)
     
     # === STEP 2: Binary Feature Encoding ===
     # Apply deterministic mappings for binary features
